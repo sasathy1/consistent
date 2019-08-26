@@ -155,6 +155,10 @@ func (c *Consistent) AverageLoad() float64 {
 	return math.Ceil(avgLoad)
 }
 
+func (c *Consistent) GetHashRing() map[int]*Member {
+	return c.partitions
+}
+
 func (c *Consistent) distributeWithLoad(partID, idx int, partitions map[int]*Member, loads map[string]float64) {
 	avgLoad := c.AverageLoad()
 	var count int
