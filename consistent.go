@@ -159,6 +159,10 @@ func (c *Consistent) GetHashRing() map[uint64]*Member {
 	return c.ring
 }
 
+func (c *Consistent) GetPartitions() map[int]*Member {
+	return c.partitions
+}
+
 func (c *Consistent) distributeWithLoad(partID, idx int, partitions map[int]*Member, loads map[string]float64) {
 	avgLoad := c.AverageLoad()
 	var count int
